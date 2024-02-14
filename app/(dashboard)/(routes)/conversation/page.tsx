@@ -16,7 +16,11 @@ import OpenAI from "openai";
 
 const ConversationPage = () => {        
     const router = useRouter();
+<<<<<<< HEAD
     const [messages, setMessages] = useState<OpenAI.Chat.ChatCompletionCreateMessageParam[]>([]);
+=======
+    const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
+>>>>>>> 3990b9c ([bot] migrate files)
     const form =useForm<z.infer<typeof fromSchema>>({
         resolver:zodResolver(fromSchema),
         defaultValues:{
@@ -28,7 +32,11 @@ const ConversationPage = () => {
 
    const onsubmit = async (values: z.infer<typeof fromSchema>) => {
         try {
+<<<<<<< HEAD
             const userMessage:OpenAI.Chat.ChatCompletionCreateMessageParam = {
+=======
+            const userMessage:OpenAI.Chat.CreateChatCompletionRequestMessage = {
+>>>>>>> 3990b9c ([bot] migrate files)
                 role: "user",
                 content: values.prompt,
             };
