@@ -16,7 +16,7 @@ import OpenAI from "openai";
 
 const ConversationPage = () => {        
     const router = useRouter();
-    const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
+    const [messages, setMessages] = useState<OpenAI.Chat.ChatCompletionCreateMessageParam[]>([]);
     const form =useForm<z.infer<typeof fromSchema>>({
         resolver:zodResolver(fromSchema),
         defaultValues:{
@@ -28,7 +28,7 @@ const ConversationPage = () => {
 
    const onsubmit = async (values: z.infer<typeof fromSchema>) => {
         try {
-            const userMessage:OpenAI.Chat.CreateChatCompletionRequestMessage = {
+            const userMessage:OpenAI.Chat.ChatCompletionCreateMessageParam = {
                 role: "user",
                 content: values.prompt,
             };
